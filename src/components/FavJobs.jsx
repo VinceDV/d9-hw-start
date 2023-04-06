@@ -12,12 +12,13 @@ const FavJobs = () => {
 
   return (
     <Row className="d-flex justify-content-center">
+      <Link className="mt-2" to={"/"}>HOME</Link>
       <h2>Favorite Jobs</h2>
       <Col sm={12} className="d-flex justify-content-center">
         <ul className="p-0">
           {lavori.map((job, i) => (
             <li key={i} className="my-2 d-flex justify-content-between">
-              <Link className="" to={`/${job}`}>
+              <Link className="mt-2" to={`/${job}`}>
                 {job}
               </Link>
               <Button
