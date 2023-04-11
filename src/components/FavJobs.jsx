@@ -2,6 +2,7 @@ import { Col, Row, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Alert } from "react-bootstrap";
+import { removeFromCart } from "../redux/actions";
 // CART innanzitutto deve LEGGERE il contenuto di state.cart.content
 // CART deve anche rimuovere un elemento dall'array content
 
@@ -18,18 +19,15 @@ const FavJobs = () => {
         <ul className="p-0">
           {lavori.map((job, i) => (
             <li key={i} className="my-2 d-flex justify-content-between">
-              <Link className="mt-2" to={`/${job}`}>
-                {job}
+              <Link className="mt-2" to={`/${job.title}`}>
+                {job.title}
               </Link>
               <Button
                 className="ml-5"
                 variant="danger"
                 onClick={() => {
                   // dobbiamo rimuovere un elemento da state.cart.content
-                  dispatch({
-                    type: "REMOVE_FROM_CART",
-                    payload: i,
-                  });
+                  dispatch(removeFromCart(i));
                   alert("Job discarded");
                 }}
               >

@@ -2,7 +2,8 @@ import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import Alert from 'react-bootstrap'
+import { AddToCart } from '../redux/actions'
+
 const Job = ({ data }) => {
   const dispatch = useDispatch()
 return (
@@ -23,12 +24,7 @@ return (
                 onClick={() => {
                   // qui dovremmo azionare la generazione di un nuovo stato
                   // --> "dispatchando" un'action
-                  dispatch({
-                    type: 'ADD_TO_CART',
-                    payload: data.company_name,
-                    // il type rappresenta il "nome" della action
-                    // il payload rappresenta il "contenuto" della action
-                  })
+                  dispatch(AddToCart(data))
                   alert("Job added to favorites.")
                 }}
               >

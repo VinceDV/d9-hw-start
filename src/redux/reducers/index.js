@@ -10,8 +10,9 @@ const initialState = {
     // questo stato iniziale è buona prassi suddividerlo in "slices", in sezioni
     // in "fette", in sotto-oggetti
     cart: {
-      content: [], // questo è il contenuto del carrello
+      content: [], // questo è il contenuto del carrello      
     },
+    jobs: [],
   }
   
   const mainReducer = (state = initialState, action) => {
@@ -50,6 +51,11 @@ const initialState = {
             //   content: state.cart.content.filter((book, i) => i !== action.payload),
           },
         }
+        case "SET_JOBS":
+          return {
+            ...state,
+            jobs: action.payload
+          }
   
       default:
         return state
