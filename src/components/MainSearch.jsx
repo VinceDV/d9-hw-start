@@ -2,15 +2,13 @@ import { useState } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import Job from './Job'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchJobs } from '../redux/actions'
 
 const MainSearch = () => {
   const [query, setQuery] = useState('')
-  const [jobs, setJobs] = useState([])
   const dispatch = useDispatch()
-  const baseEndpoint = 'https://strive-benchmark.herokuapp.com/api/jobs?search='
-
+  const jobs = useSelector((state) => state.jobs)
   const handleChange = (e) => {
     setQuery(e.target.value)
   }

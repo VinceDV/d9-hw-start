@@ -22,13 +22,10 @@ const initialState = {
     // quindi il reducer cercherà di capire il TYPE dell'action dispatchata
     // e in base a quello deciderà cosa fare
   
-    switch (action.type) {
-      // il nostro action.type è 'ADD_TO_CART'
-  
+    switch (action.type) {  
       case 'ADD_TO_CART':
         return {
-          ...state, // questo si occupa si portare dentro eventuali
-          // ALTRE proprietà che non siano cart
+          ...state, 
           cart: {
             // action.payload è il nostro libro che vogliamo aggiungere
             content: [...state.cart.content, action.payload],
