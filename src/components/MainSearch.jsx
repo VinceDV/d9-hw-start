@@ -8,7 +8,9 @@ import { fetchJobs } from '../redux/actions'
 const MainSearch = () => {
   const [query, setQuery] = useState('')
   const dispatch = useDispatch()
-  const jobs = useSelector((state) => state.jobs)
+  
+  const jobs = useSelector((state) => state.joblist.joblist.list)
+  
   const handleChange = (e) => {
     setQuery(e.target.value)
   }

@@ -12,7 +12,6 @@ const initialState = {
     cart: {
       content: [], // questo è il contenuto del carrello      
     },
-    jobs: [],
   }
   
   const mainReducer = (state = initialState, action) => {

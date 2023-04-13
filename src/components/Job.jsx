@@ -1,7 +1,7 @@
 import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { AddToCart } from '../redux/actions'
 
 const Job = ({ data }) => {

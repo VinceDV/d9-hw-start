@@ -1,14 +1,15 @@
 import { Col, Row, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Alert } from "react-bootstrap";
 import { removeFromCart } from "../redux/actions";
+import ListGroup from "react-bootstrap/ListGroup";
+
 // CART innanzitutto deve LEGGERE il contenuto di state.cart.content
 // CART deve anche rimuovere un elemento dall'array content
 
 const FavJobs = () => {
   // scriviamo qui gli hooks!
-  const lavori = useSelector((state) => state.cart.content);
+  const lavori = useSelector((state) => state.cart.cart.content);
   const dispatch = useDispatch();
 
   return (
@@ -16,7 +17,7 @@ const FavJobs = () => {
       <Link className="mt-2" to={"/"}>HOME</Link>
       <h2>Favorite Jobs</h2>
       <Col sm={12} className="d-flex justify-content-center">
-        <ul className="p-0">
+        <ListGroup className="p-0">
           {lavori.map((job, i) => (
             <li key={i} className="my-2 d-flex justify-content-between">
               <Link className="mt-2" to={`/${job.title}`}>
@@ -35,7 +36,7 @@ const FavJobs = () => {
               </Button>
             </li>
           ))}
-        </ul>
+        </ListGroup>
       </Col>
     </Row>
   );
